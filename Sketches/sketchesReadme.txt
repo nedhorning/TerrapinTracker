@@ -1,8 +1,7 @@
 ﻿Sketch descriptions
 
-GnatTurtleTracker_Tide_v4
+TurtleTracker_TideArray
+This sketch uses an array high tide times to determine when to start and stop high/low tide cycling rates. See the TideGuide in the UserGuides directory for information about how to create the high tide times array. 
 
-This sketch uses print statements for debugging and monitoring program flow. This version is designed to have the GPS collect locations points at a specific sampling frequency around high tide and another sampling frequency otherwise.  
-
-GnatTurtleTracker_Tide_NoPrints_v1
-This is similar to GnatTurtleTracker_Tide_v4 but does not have print statements since it is designed to be run at 4.2 MHz clock speed and serial output is not possible. 
+TurtleTracker_TideTiming
+This sketch uses a reference high tide time and a constant period between high tide times to determine when to start and stop high/low tide cycling rates. This can have deviations of over one hour when compared with actual high tide times for certain times of the year. 
