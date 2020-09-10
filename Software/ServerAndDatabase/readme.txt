@@ -1,0 +1,5 @@
+There are many different ways to set up servers to store data and to host the different ChirpStack components. The server functions can be divided into two separate groups, one for hosting ChirpStack components and the other to handle data once it is PUSHed from the ChirpStack Application Server.
+
+ChirpStack can be hosted on the gateway itself, on a separate computer on the same network (local) or on a computer on a different network. Information to set up ChirpStack on the gateway or a local server can be found in the “ChirpStackLoRaWAN_Software” directory. Information to set up ChirpStack on an Internet server can be found in the “SetupDigitalOceanServer” document. Digital Ocean is a low cost (~$5/month) server that works well to host all of some of the ChirpStack components.  
+
+Information about setting up a no-cost internet web service to accept data from the ChirpStack Application Server and send it to a MongoDB database is provided in the “SetupFreeInternetServerAndDatabaseForTrackerData” document. To store data in an InfluxDB database and view those data with Grafana look at the “InfluxDB_GrafanaInstall_Draft” document.

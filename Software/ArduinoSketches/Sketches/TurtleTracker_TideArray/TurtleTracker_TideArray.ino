@@ -5,7 +5,7 @@
 #include <RTC.h>
 
 const char *appEui = "70B3D57ED0029388";
-const char *appKey = "9C5E64056A46C2872DED008E20A6F95A";
+const char *appKey = "9C5E64056A46C2872DED008E20A6F95A"; // This is set using the ChirpStack Application Server 
 const char *devEui = "393435377a377f0b";
 
 bool isHighTide = false;
