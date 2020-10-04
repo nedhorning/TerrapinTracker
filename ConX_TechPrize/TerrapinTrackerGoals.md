@@ -20,9 +20,9 @@ Status and measuring success:
 At this point the project has only discussed the importance of providing this capability but no hardware to support it has been tested. Success will be measured by how close we are to being able to deploy such a Terrapin Tracker system in an off-the-grid environment. 
 
 
-Goal: Develop a prototype for a version 2 tracker that has a sensor to detect when a turtle shell is above or under water. 
+**Goal**\: Develop a prototype for a version 2 tracker that has a sensor to detect when a turtle shell is above or under water. 
 
 Ideally we want to turn off the GNSS receiver when the antenna is underwater to conserve power. Our current prototype uses software logic to control how frequently the GNSS operates to acquire DBT location data. The GNSS receiver operates more frequently during high tide since that is when DBTs tend to be on land but that approach is less than ideal. Adding a sensor to detect when a DBT is underwater has been tried by other researchers and many have reported that current methods are not reliable. We will investigate novel approaches to achieve this goal.
 
-Status and measuring success:
+**Status and measuring success:**
 We are currently at the brainstorming stage. Success will be measured by the reliability and speed of detecting when a sensor is in or out of water. Our initial target is to be able to have the switch turn on and turn off the GNSS receiver within two seconds of a surfacing or submerging event.
