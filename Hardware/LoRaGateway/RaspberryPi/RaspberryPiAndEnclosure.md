@@ -14,9 +14,9 @@ A useful addition to these gateways is a larger antenna with greater gain. We ar
 One downside with the RPi gateways is that they need to be enclosed properly if they are to be placed outside. It is possible to create your own enclosure using waterproof junction boxes or something similar but RAK Wireless sells an enclosure specifically for this purpose fro $89 (<https://store.rakwireless.com/products/outdoor-gateway-enclosure>). 
 
 To use this enclosure some additional parts should be purchased:
-    • For WiFi reception a USB external WiFi antenna [$9.99] for the RPi Gateway (<https://www.ebay.com/itm/123990900283>) is needed to attach to the USB port on the RPi and this WiFi antenna [$4.99] to attached to the gateway enclosure (<https://www.data-alliance.net/antenna-5dbi-2-4ghz-5ghz-options-outdoor-omnidirectional-w-n-male-right-angle/>) . 
-    • We also needed a U.FL-Male To RP-SMA-Male Adapter [$4.70] (<https://www.data-alliance.net/u-fl-male-to-rp-sma-male-adapter-u-fl-connector-snaps-for-permanent-fit>/) so the antenna cables that come with the enclosure can be used.
-    • The outdoor enclosure is packaged with a cable gland for the power-over-ethernet adapter that comes with the enclosure but it does not have a gland for a power cable if the Pi will be powered using other means. We used this M25 x 1.5 metric thread gland [$4.25] (
+  - For WiFi reception a USB external WiFi antenna [$9.99] for the RPi Gateway (<https://www.ebay.com/itm/123990900283>) is needed to attach to the USB port on the RPi and this WiFi antenna [$4.99] to attached to the gateway enclosure (<https://www.data-alliance.net/antenna-5dbi-2-4ghz-5ghz-options-outdoor-omnidirectional-w-n-male-right-angle/>) . 
+  - We also needed a U.FL-Male To RP-SMA-Male Adapter [$4.70] (<https://www.data-alliance.net/u-fl-male-to-rp-sma-male-adapter-u-fl-connector-snaps-for-permanent-fit>/) so the antenna cables that come with the enclosure can be used.
+  - The outdoor enclosure is packaged with a cable gland for the power-over-ethernet adapter that comes with the enclosure but it does not have a gland for a power cable if the Pi will be powered using other means. We used this M25 x 1.5 metric thread gland [$4.25] (
 	<https://www.ebay.com/itm/352874323191>).
 
 Additional cell modem antennas would need to be purchased if using the cellular modem. 
