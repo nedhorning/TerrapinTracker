@@ -35,10 +35,10 @@ Following are some photos of our enclosure. The enclosure comes with an aluminum
 To make the USB WiFi work you need to turn off the internal RPi WiFi. You can do that by logging into the RPi and typing: sudo iwconfig wlan0 txpower off
 To turn it back on after you disconnect the USB WiFi you would type: 
 
-![](../../../Images/pi-tower.png)
-
 ``` bash
 sudo rfkill unblock wifi
 sudo iwconfig wlan0 txpower on
 reboot
 ```
+
+![](../../../Images/pi-tower.png)
