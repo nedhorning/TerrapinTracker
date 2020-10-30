@@ -13,5 +13,8 @@ This sketch uses an array high tide times to determine when to start and stop hi
 TurtleTracker_TideTiming
 This sketch uses a reference high tide time and a constant period between high tide times to determine when to start and stop high/low tide cycling rates. This can have deviations of over one hour when compared with actual high tide times for certain times of the year. 
 
+TurtleTracker_TideArrayNumSatsDownstreamComm
+This sketch is similar to TurtleTracker_TideArray but it adds the capability to send downstream messages to the tracker to update variables. Inside the folder is a key that shows the fport/variable assignments.
+
 GetDevEUI
 This skectch reads the Device EUI from a Gnat and prints it to the Serial Monitor 
