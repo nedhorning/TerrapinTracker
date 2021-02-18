@@ -2,10 +2,10 @@
 
 The IWDG module is used in production systems to generate a reset signal to the CPU in case some catastrophic event causes the software to become "stuck" or unresponsive.
 
-The GNAT uses the STM STM32L082xx2 MCU. This has an independant watchdog timer implemented as a 12-bit count down timer. The reference manual is [here].
-(https://www.st.com/resource/en/reference_manual/dm00108281-ultralowpower-stm32l0x2-advanced-armbased-32bit-mcus-stmicroelectronics.pdf) The registers set in the code are on page 595. 
+The GNAT uses the STM32L082xx2 MCU which has an independant watchdog timer implemented as a 12-bit count down timer. The reference manual is [here](https://www.st.com/resource/en/reference_manual/dm00108281-ultralowpower-stm32l0x2-advanced-armbased-32bit-mcus-stmicroelectronics.pdf).
+ The registers set in the code are on page 595. 
 
-The clock for the watchdog is obtained by dividing the LSI clock. This is about 37kHz for the GNAT / STM32L082xx2. The prescaler is defined in the code by the iwdg_prescaler ENUM as follows:
+The watchdog clock comes from dividing the LSI clock. For the GNAT / STM32L082xx2 it is about 37kHz. The prescaler is defined in the code by the `iwdg_prescaler` ENUM as follows:
 
 ```
 typedef enum iwdg_prescaler {
@@ -19,15 +19,15 @@ typedef enum iwdg_prescaler {
 } iwdg_prescaler;
 ```
 
-This can replaced with the hex value need eg 0x6. This shows the options you have. 
+The hex value can also be used directly e.g. `0x6`. However using an enum is human readable and shows the options without needing the reference docs.
 
-The watchdog counts down from a 12 bit value you set in `iwdg_init(prescaler, counterStartValue)`. It cannot be higher than 4095. If the counter it reaches zero, it triggers a hard reboot.
+The watchdog counts down from a programmer defined 12 bit value. This is set in `iwdg_init(prescaler, counterStartValue)`. It cannot be higher than 4095. If the counter it reaches zero, it triggers a hard reboot.
 
-For example, we want a very long watchdog period for testing. We select a prescaler of 256 and a maximum counter value of 1000. The IWDG_PRE_256 selected the hex value 0x6 from the `iwdg_prescale` enum.
+For example, we want a very long watchdog period for testing. We select a prescaler of 256 and a maximum counter value of 1000. The `IWDG_PRE_256` tag selected the hex value 0x6 from the `iwdg_prescale` enum.
 
-'''
+```
 iwdg_init(IWDG_PRE_256, 1000);
-'''
+```
 
 For the GNAT / STM32L082 this gives a watchdog clock of ~144 Hz (~37 kHz / 256). 1000 clocks gives a reboot in ~ 6.9 sec. For production systems the reboot should be triggered when the process has taken too long to still be working as intended.
 
