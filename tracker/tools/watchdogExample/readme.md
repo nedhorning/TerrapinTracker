@@ -35,6 +35,10 @@ To prevent the hard reboot, the counter can be reset before it reaches zero by c
 
 For the demo, comment out `iwdg_feed` in the loop for demonstration. The serial output will count until the watchdog is triggered after ~ 7 seconds, when the counter is reset using `iwdg_feed` it will keep running.
 
+# Demonstration of non-volotile power cycle counter
+A power cycle counter is implemented in non-volotile memory to track each power cycle. This is useful for autonomous devices as would not otherwise know about resets. This is the most simple form of error handling. 
+
+Use initaliseResetCounter.ino (in tools folder) to inialise and reset the counter. It also sets the hardware version of the board which survives when the device is programmed.
+
 ## To do:
-- Add a power cycle counter using non-volotile flash / EEPROM to show if there is a recurring problem with the software or hardware
-- Log power cycles via LoRa as an error tracking feature
+- Log power cycles and startup message via LoRa as an error tracking feature

@@ -13,12 +13,21 @@
 // reference sheet for STM32L0x2
 // https://www.st.com/resource/en/reference_manual/dm00108281-ultralowpower-stm32l0x2-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
 
-// To do:
-// - Add a power cycle counter using non-volotile flash / EEPROM to show if there is a recurring problem with the software or hardware
+// In addition a power cycle counter is implemented in non-volotile memory to track the resets. 
+// This is useful for autonomous devices as we otherwise know what caused errors.
+// use initaliseResetCounter.ino to initalaise and reset the counter and hardware version.
+
+// To Do:
 // - Log power cycles via LoRa as an error tracking feature
 
+#include <EEPROM.h>
+int resetCountAdr = 0;
+byte resetCounter;
+byte hardwareVerAdr = 1;
+byte hardwareVer;
+float softwareVer = 0.1;
+
 int i = 0;  // counter for demonstration of software watchdog timer.
-int resetCounter;  // non-volatile reset counter
 
 typedef enum iwdg_prescaler {
   IWDG_PRE_4 = 0x0,     /**< Divide by 4 */
@@ -46,13 +55,33 @@ void iwdg_init(iwdg_prescaler prescaler, uint16_t reload) {
 }
 
 void setup()  {
-  Serial.begin(115200);  ///< start usb serial at 115200 baud
-  delay(4000);  ///< wait 4000 ms for serial to be ready
-  Serial.println("rebooted");
+  // update the non-volatile power cycle counter
+  resetCounter = EEPROM.read(resetCountAdr);
+  resetCounter ++;  // add one to the number of power cycles
+  EEPROM.write(resetCountAdr, resetCounter);
+  hardwareVer = EEPROM.read(hardwareVerAdr);  // get the hardware version from flash
+
   iwdg_init(IWDG_PRE_256, 1000); // start watchdog counter with 256 prescaler and reset when count = 1000
   // GNAT is STM32L082, LSI is approx 37 kHz
   // giving a watchdog clock of ~37 kHz / 256 = ~144 Hz  
   // 1000 clocks gives ~ 6.9 sec before reset.
+  
+  Serial.begin(115200);  ///< start usb serial at 115200 baud
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }
+ 
+   // display start up information on serial console
+  Serial.println("\n \n \n");
+  Serial.println("Turtle Tracker \n");
+  Serial.print("hardware version: ");
+  Serial.println(hardwareVer, DEC);
+  Serial.print("software version: ");
+  Serial.println(softwareVer);
+  Serial.print("power cycles: ");
+  Serial.println(resetCounter, DEC);
+  Serial.println("\n \n \n");
+  
 }
 
 void loop() {
