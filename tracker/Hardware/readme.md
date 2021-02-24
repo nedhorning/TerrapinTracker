@@ -27,10 +27,9 @@ This can be used to deploy a Raspberry Pi gateway that will be set outside. This
 - The outdoor enclosure is packaged with a cable gland for the power-over-ethernet adapter that comes with the enclosure but it does not have a gland for a power cable if the Pi will be powered using other means. We used this M25 x 1.5 metric thread gland [$4.25] (<https://www.ebay.com/itm/352874323191>).
 
 Battery for a 2-month deployment  \$25.95 for 2
-We are using a SAFT LS14500 Size AA 3.6V 2600mAh primary lithium battery with wire leads for the initial deployment. This is expected to last well over the 2-month monitoring period.
+We were planning to use a SAFT LS14500 Size AA 3.6V 2600mAh primary lithium battery for the initial deployment but we discoved that the battery can react violently when exposed to water so we are considering alturnatives. 
 
 # Component Weights
-* Li-SOCl2 battery AA with wires  18.4g
 * Gnat 2.8g
 * GNSS Antenna 8.0g
 * LoRa antenna 0.1g

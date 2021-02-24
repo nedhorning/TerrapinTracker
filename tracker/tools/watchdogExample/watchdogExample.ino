@@ -88,7 +88,7 @@ void loop() {
   ++i;
   Serial.println(i);
   delay(1000);
-  iwdg_feed();  // for the demo, comment this out and the MCU will hard reset every 6.9 sec
+ // iwdg_feed();  // for the demo, comment this out and the MCU will hard reset every 6.9 sec
 }
 
 // to use it call iwdg_init() at setup with divider value and reload value you need, divider is for LSI clock, always check your mcu for actual value (for F103 LSI is 40khz)
